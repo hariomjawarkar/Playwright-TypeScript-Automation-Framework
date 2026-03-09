@@ -5,15 +5,14 @@ export class CartPage {
     readonly page: Page;
     readonly cartItem: Locator;
 
-    constructor(page: Page){
+    constructor(page: Page) {
 
         this.page = page;
 
         this.cartItem = page.locator('.inventory_item_name');
-
     }
 
-    async verifyProductInCart(productName:string){
+    async verifyProductInCart(productName: string) {
 
         await expect(this.cartItem).toContainText(productName);
 

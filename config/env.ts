@@ -11,5 +11,4 @@ export const ENV = {
  prod:{
   baseURL:"https://www.saucedemo.com"
  }
-
 };

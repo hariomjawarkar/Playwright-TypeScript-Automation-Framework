@@ -21,6 +21,22 @@ This framework implements several best practices in test automation:
 
 ---
 
+## 📊 Framework Results & Execution
+
+### Allure Reporting Dashboard
+*(Upload your allure-dashboard.png to the `assets/` folder and replace this text)*
+![Allure Report Dashboard](./assets/allure-dashboard.png)
+
+### Automated Test Execution
+*(Upload your test-run.gif to the `assets/` folder and replace this text)*
+![Test Execution Demo](./assets/test-run.gif)
+
+### GitHub Actions Pipeline
+*(Upload your github-actions-pass.png to the `assets/` folder and replace this text)*
+![Build Pipeline](./assets/github-actions-pass.png)
+
+---
+
 ## 📂 Project Structure
 
 ```text

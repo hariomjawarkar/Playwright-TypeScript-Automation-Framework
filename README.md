@@ -35,7 +35,6 @@ This framework implements several best practices in test automation:
 ![Test Execution Demo](./assets/test-run.gif)
 
 ### GitHub Actions Pipeline
-*(Upload your github-actions-pass.png to the `assets/` folder and replace this text)*
 ![Build Pipeline](./assets/github-actions-pass.png)
 
 ---

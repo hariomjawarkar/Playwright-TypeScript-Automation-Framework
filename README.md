@@ -10,11 +10,13 @@ This framework implements several best practices in test automation:
 
 *   **Page Object Model (POM):** Ensures reusable and maintainable codebase.
 *   **Fixtures & Hooks:** Custom Playwright fixtures for clean test setup and teardown.
+*   **🖼️ Visual Regression Testing:** Demonstrate pixel-by-pixel UI consistency with native `toHaveScreenshot()` support.
 *   **🌍 Dynamic Environment Management:** Capability to run tests against **Dev, Stage, or Prod** via a single CLI command using `cross-env`.
 *   **🔑 Global Authentication State:** Optimized test execution by logging in **once** via `global-setup` and reusing the session across all tests.
 *   **Dual-Layer Testing:** Comprehensive coverage for both **UI** and **API** end-to-end scenarios.
 *   **Data-Driven Testing:** Seamless integration with **Excel (.xlsx)** and **JSON** for test data management.
 *   **⏱️ Professional Logging:** Custom logger with **ISO timestamps** for high-transparency debugging.
+
 *   **Advanced Reporting:** 
     *   📊 **Allure Reports** for rich, interactive execution history.
     *   📑 **Playwright HTML Reports** for localized debugging.
@@ -91,6 +93,7 @@ npx playwright install
 | **Staging** | `npm run test:stage` |
 | **Production** | `npm run test:prod` |
 | **Smoke Suite** | `npm run smoke` |
+| **Visual Registry** | `npx playwright test --grep @visual` |
 
 ### 📊 Reporting
 

@@ -10,12 +10,15 @@ This framework implements several best practices in test automation:
 
 *   **Page Object Model (POM):** Ensures reusable and maintainable codebase.
 *   **Fixtures & Hooks:** Custom Playwright fixtures for clean test setup and teardown.
+*   **🌍 Dynamic Environment Management:** Capability to run tests against **Dev, Stage, or Prod** via a single CLI command using `cross-env`.
+*   **🔑 Global Authentication State:** Optimized test execution by logging in **once** via `global-setup` and reusing the session across all tests.
 *   **Dual-Layer Testing:** Comprehensive coverage for both **UI** and **API** end-to-end scenarios.
 *   **Data-Driven Testing:** Seamless integration with **Excel (.xlsx)** and **JSON** for test data management.
-*   **Logging & Utilities:** Custom logger and utility functions for file handling and data parsing.
+*   **⏱️ Professional Logging:** Custom logger with **ISO timestamps** for high-transparency debugging.
 *   **Advanced Reporting:** 
     *   📊 **Allure Reports** for rich, interactive execution history.
     *   📑 **Playwright HTML Reports** for localized debugging.
+
 *   **CI/CD Ready:** Pre-configured GitHub Actions workflow for automated regression on push/pull requests.
 *   **Cross-Browser Testing:** Configured to run on Chromium, Firefox, and WebKit (Safari).
 
@@ -81,46 +84,22 @@ npx playwright install
 
 ---
 
-## 🧪 Running Tests
+### 🧪 Execution Commands
 
-### Execute all tests
-```bash
-npm test
-```
+| Environment | Command |
+| :--- | :--- |
+| **Development** | `npm run test:dev` |
+| **Staging** | `npm run test:stage` |
+| **Production** | `npm run test:prod` |
+| **Smoke Suite** | `npm run smoke` |
 
-### Run specific test suites (Smoke)
-```bash
-npm run smoke
-```
+### 📊 Reporting
 
-### Run tests in Headed mode
-```bash
-npx playwright test --headed
-```
+| Report Type | Command | Description |
+| :--- | :--- | :--- |
+| **HTML Report** | `npm run report:html` | Standard Playwright HTML reporter |
+| **Allure Report** | `npm run report:allure` | Professional dashboard with trends |
 
-### Debugging tests
-```bash
-npx playwright test --debug
-```
-
----
-
-## 📊 Reports
-
-### Playwright Default Report
-```bash
-npm run report
-```
-
-### Allure Report Generation
-To generate and view the interactive Allure report:
-```bash
-# Generate report
-npx allure generate allure-results --clean -o allure-report
-
-# Open report
-npx allure open allure-report
-```
 
 ---
 

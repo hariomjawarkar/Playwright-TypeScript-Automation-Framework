@@ -1,31 +1,49 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
+import { ENV } from './config/env';
 
 export default defineConfig({
+  testDir: './tests',
+  timeout: 45000,
+  expect: { timeout: 10000 },
+  fullyParallel: true,
+  retries: 1,
+  workers: 4,
+  
+  // High-end pattern: Auth reuse
+  globalSetup: require.resolve('./utils/global-setup'),
 
- testDir: './tests',
+  reporter: [
+    ['html', { open: 'never' }],
+    ['allure-playwright', { outputFolder: 'allure-results' }],
+    ['./utils/customReporter.ts']
+  ],
 
- retries: 2,
-
- workers: 4,
-
- reporter: [
-
-  ['html'],
-
-  ['./utils/customReporter.ts'],
- 
-  ['allure-playwright']
- ],
-
- use: {
+  use: {
+    baseURL: ENV.baseURL,
+    // Reuse auth state for faster tests
+    storageState: './assets/auth.json',
+    
     screenshot: "only-on-failure",
-
     video: "retain-on-failure",
-
     trace: "on-first-retry",
-
+    
     launchOptions: {
-      slowMo: 500
+      slowMo: 0 // Professional settings use fast execution
     }
-  }
+  },
+
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    }
+  ]
 });

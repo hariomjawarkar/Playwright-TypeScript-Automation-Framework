@@ -7,9 +7,7 @@ export class LoginPage {
     readonly username: Locator;
     readonly password: Locator;
     readonly loginBtn: Locator;
-
-    constructor(page: Page){
-
+    constructor(page: Page) {
         this.page = page;
 
         this.username = page.locator('#user-name');
@@ -17,15 +15,14 @@ export class LoginPage {
         this.loginBtn = page.locator('#login-button');
     }
 
-    async navigateToLogin(){
+    async navigateToLogin() {
 
-        await this.page.goto(ENV.dev.baseURL);
+        await this.page.goto(ENV.baseURL);
 
     }
+    async login(user: string, pass: string) {
 
-    async login(user:string, pass:string){
-
-        if(!user || !pass){
+        if (!user || !pass) {
             throw new Error("Username or Password is undefined. Check Excel data.");
         }
 

@@ -1,7 +1,6 @@
 import { Page, Locator, expect } from '@playwright/test';
 
 export class CheckoutPage {
-
     readonly page: Page;
     readonly checkoutBtn: Locator;
     readonly firstName: Locator;
@@ -11,10 +10,8 @@ export class CheckoutPage {
     readonly finishBtn: Locator;
     readonly orderConfirmation: Locator;
 
-    constructor(page: Page){
-
+    constructor(page: Page) {
         this.page = page;
-
         this.checkoutBtn = page.locator('#checkout');
         this.firstName = page.locator('#first-name');
         this.lastName = page.locator('#last-name');
@@ -24,28 +21,22 @@ export class CheckoutPage {
         this.orderConfirmation = page.locator('.complete-header');
     }
 
-    async clickCheckout(){
-
+    async clickCheckout() {
         await this.checkoutBtn.click();
-
     }
 
-    async enterCheckoutDetails(first:string,last:string,zip:string){
+    async enterCheckoutDetails(first: string, last: string, zip: string) {
 
         await this.firstName.fill(first);
         await this.lastName.fill(last);
         await this.postalCode.fill(zip);
         await this.continueBtn.click();
-
     }
-
-    async finishOrder(){
-
+    async finishOrder() {
         await this.finishBtn.click();
-
     }
 
-    async verifyOrderConfirmation(){
+    async verifyOrderConfirmation() {
 
         await expect(this.orderConfirmation).toHaveText("Thank you for your order!");
 

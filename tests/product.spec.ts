@@ -1,29 +1,15 @@
 import { test, expect } from '../fixtures/baseTest';
+import { Logger } from '../utils/Logger';
 
-test.beforeEach(async ({ loginPage }) => {
-
- console.log("Starting Test");
-
- await loginPage.login("standard_user","secret_sauce");
-
-});
-
-test.afterEach(async ({ page }) => {
-
- console.log("Test Finished");
-
- await page.waitForTimeout(1000);
-
+test.beforeEach(async ({ page }) => {
+  Logger.info("Navigating to inventory page with authenticated state...");
+  await page.goto('/inventory.html');
 });
 
 test('Add Product To Cart @smoke', async ({ productPage, cartPage }) => {
-
- await productPage.verifyProductPage();
-
- await productPage.addProductToCart();
-
- await productPage.openCart();
-
- await cartPage.verifyProductInCart("Sauce Labs Backpack");
-
-});
+  Logger.info("Starting product selection flow...");
+  await productPage.verifyProductPage();
+  await productPage.addProductToCart();
+  await productPage.openCart();
+  await cartPage.verifyProductInCart("Sauce Labs Backpack");
+});

@@ -28,15 +28,15 @@ export class ProductPage {
     }
 
     async addProductToCart(){
-
         await this.addBackpackBtn.click();
-
+        // Wait for the badge to be visible before proceeding - solves headed race conditions
+        await this.page.locator('.shopping_cart_badge').waitFor({ state: 'visible' });
     }
 
-    async openCart(){
-
+    async openCart() {
+        // Wait for stability: the cart icon is re-rendered when the badge appears
+        await this.page.locator('.shopping_cart_link').waitFor({ state: 'visible' });
         await this.cartIcon.click();
-
     }
 
     async logout(){

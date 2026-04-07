@@ -26,10 +26,14 @@ test.describe('Visual Regression Testing @visual', () => {
     // Note: We are already logged in thanks to storageState!
     await page.goto('/inventory.html');
     
-    // Higher tolerance and masking to prevent environmental flakiness 
+    // Force strictly identical dimensions across Windows/Linux
+    await page.setViewportSize({ width: 1280, height: 1110 });
+    await page.addStyleTag({ content: 'body { min-height: 1110px !important; width: 1280px !important; overflow: hidden !important; }' });
+    await page.waitForLoadState('networkidle');
+    
     await expect(page).toHaveScreenshot('inventory-page.png', {
       mask: [page.locator('.footer_copy')], 
-      fullPage: true,
+      clip: { x: 0, y: 0, width: 1280, height: 1110 },
       maxDiffPixelRatio: process.env.CI ? 0.25 : 0.15, 
       animations: 'disabled',
       caret: 'hide',

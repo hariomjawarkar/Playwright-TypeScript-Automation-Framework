@@ -8,8 +8,8 @@ export default defineConfig({
   fullyParallel: true,
   retries: 1,
   workers: 4,
-    snapshotPathTemplate: '{testDir}/{testFile}-snapshots/{arg}{ext}',
-  
+  snapshotPathTemplate: '{testDir}/{testFile}-snapshots/{arg}{ext}',
+
   // High-end pattern: Auth reuse
   globalSetup: require.resolve('./utils/global-setup'),
 
@@ -23,13 +23,14 @@ export default defineConfig({
     baseURL: ENV.baseURL,
     // Reuse auth state for faster tests
     storageState: './assets/auth.json',
-    
+
     screenshot: "only-on-failure",
     video: "retain-on-failure",
     trace: "on-first-retry",
-    
+
     launchOptions: {
-      slowMo: 0 // Professional settings use fast execution
+      slowMo: 0,
+      args: ['--hide-scrollbars'] 
     }
   },
 

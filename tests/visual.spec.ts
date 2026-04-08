@@ -28,14 +28,17 @@ test.describe('Visual Regression Testing @visual', () => {
     test('Inventory Page Visual Baseline', async ({ page }) => {
       Logger.info("Taking visual baseline of Inventory (Logged in) Page...");
       
-      await page.goto('/inventory.html', { waitUntil: 'domcontentloaded' });
+      // Navigate and wait for full load to avoid context destruction
+      await page.goto('/inventory.html', { waitUntil: 'load' });
       
       // Force strictly identical dimensions across Windows/Linux
       await page.setViewportSize({ width: 1280, height: 1110 });
-      await page.addStyleTag({ content: 'body { min-height: 1110px !important; width: 1280px !important; overflow: hidden !important; }' });
       
-      // Wait for the inventory list specifically
+      // Wait for the inventory list to be present BEFORE injecting style
       await page.locator('.inventory_list').waitFor({ state: 'visible' });
+
+      // Inject style to freeze layout and hide scrollbars
+      await page.addStyleTag({ content: 'body { min-height: 1110px !important; width: 1280px !important; overflow: hidden !important; }' });
       
       await expect(page).toHaveScreenshot('inventory-page.png', {
         mask: [page.locator('.footer_copy')], 

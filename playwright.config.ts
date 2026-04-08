@@ -8,7 +8,7 @@ export default defineConfig({
   fullyParallel: true,
   retries: 1,
   workers: 2,
-  snapshotPathTemplate: '{testDir}/{testFileName}-snapshots/{arg}{ext}',
+  snapshotPathTemplate: '{testDir}/{testFileName}-snapshots/{arg}-{platform}{ext}',
 
   // High-end pattern: Auth reuse
   globalSetup: require.resolve('./utils/global-setup'),

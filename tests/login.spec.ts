@@ -1,5 +1,7 @@
 import { test, expect } from '../fixtures/baseTest';
 
+test.use({ storageState: { cookies: [], origins: [] } });
+
 test('Valid Login Test @smoke', async ({ loginPage, page }) => {
     const username = "standard_user";
     const password = "secret_sauce";

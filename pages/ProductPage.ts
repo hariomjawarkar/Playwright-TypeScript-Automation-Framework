@@ -43,7 +43,8 @@ export class ProductPage {
 
         await this.menuBtn.click();
 
-        await this.page.waitForTimeout(1000);
+        // Wait for the sidebar menu to expand and the logout link to be visible
+        await this.logoutLink.waitFor({ state: 'visible', timeout: 5000 });
 
         await this.logoutLink.click();
 

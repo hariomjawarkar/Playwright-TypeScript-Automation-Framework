@@ -3,12 +3,12 @@ import { ENV } from './config/env';
 
 export default defineConfig({
   testDir: './tests',
-  timeout: 45000,
-  expect: { timeout: 10000 },
+  timeout: 60000,
+  expect: { timeout: 15000 },
   fullyParallel: true,
   retries: 1,
-  workers: 4,
-  snapshotPathTemplate: '{testDir}/{testFile}-snapshots/{arg}{ext}',
+  workers: 2,
+  snapshotPathTemplate: '{testDir}/{testFileName}-snapshots/{arg}{ext}',
 
   // High-end pattern: Auth reuse
   globalSetup: require.resolve('./utils/global-setup'),

@@ -1,5 +1,7 @@
 import { test } from '../fixtures/baseTest';
 
+test.use({ storageState: { cookies: [], origins: [] } });
+
 test('Complete Checkout Flow @regression', async ({ loginPage, productPage, cartPage, checkoutPage }) => {
     const username = "standard_user";
     const password = "secret_sauce";

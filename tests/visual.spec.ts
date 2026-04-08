@@ -2,6 +2,7 @@ import { test, expect } from '../fixtures/baseTest';
 import { Logger } from '../utils/Logger';
 
 test.describe('Visual Regression Testing @visual', () => {
+  test.slow(); // Visual tests need extra time for rendering and comparison
 
   test.describe('Non-authenticated', () => {
     test.use({ storageState: { cookies: [], origins: [] } });

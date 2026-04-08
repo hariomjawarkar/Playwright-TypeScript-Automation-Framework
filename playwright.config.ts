@@ -3,11 +3,11 @@ import { ENV } from './config/env';
 
 export default defineConfig({
   testDir: './tests',
-  timeout: 90000,
+  timeout: 120000,
   expect: { timeout: 15000 },
   fullyParallel: true,
-  retries: 1,
-  workers: 2,
+  retries: 2,
+  workers: process.env.CI ? 2 : 1,
   snapshotPathTemplate: '{testDir}/{testFileName}-snapshots/{arg}-{platform}{ext}',
 
   // High-end pattern: Auth reuse

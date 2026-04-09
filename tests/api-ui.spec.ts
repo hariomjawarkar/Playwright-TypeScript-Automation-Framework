@@ -2,7 +2,6 @@ import { test, expect } from '../fixtures/baseTest';
 import { ENV } from '../config/env';
 
 test.use({ storageState: { cookies: [], origins: [] } });
-
 test('API + UI Product Validation', async ({ request, loginPage, page }) => {
 
   // Step 1: Execute API Request using dynamic apiUrl from config

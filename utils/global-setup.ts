@@ -12,8 +12,8 @@ async function globalSetup(config: FullConfig) {
   await page.locator('#password').fill('secret_sauce');
   await page.locator('#login-button').click();
   
-  // Wait for navigation or successful login indication
-  await page.waitForURL('**/inventory.html', { timeout: 10000 });
+  // Increased timeout for CI stability and used 'networkidle' for state persistence
+  await page.waitForURL('**/inventory.html', { timeout: 30000, waitUntil: 'networkidle' });
   
   const fs = require('fs');
   const path = require('path');

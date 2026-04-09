@@ -14,7 +14,6 @@ test.describe('Data-Driven Login Tests @ddt', () => {
 
   for (const credentials of loginCredentials) {
     test(`Login test for user: ${credentials.username}`, async ({ loginPage, page }) => {
-      await loginPage.navigateToLogin();
       await loginPage.login(credentials.username, credentials.password);
       
       // Check if login was successful

@@ -27,10 +27,12 @@ export default defineConfig({
     screenshot: "only-on-failure",
     video: "retain-on-failure",
     trace: "on-first-retry",
+    actionTimeout: 15000,
+    navigationTimeout: 30000,
 
     launchOptions: {
       slowMo: 0,
-      args: ['--hide-scrollbars'] 
+      args: ['--hide-scrollbars', '--disable-gpu', '--no-sandbox'] 
     }
   },
 

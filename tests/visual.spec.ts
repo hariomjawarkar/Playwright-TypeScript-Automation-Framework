@@ -10,8 +10,6 @@ test.describe('Visual Regression Testing @visual', () => {
     test('Login Page Visual Baseline', async ({ loginPage, page }) => {
       Logger.info("Taking visual baseline of Login Page...");
       
-      await loginPage.navigateToLogin();
-      
       await expect(page).toHaveScreenshot('login-page.png', {
         maxDiffPixelRatio: process.env.CI ? 0.25 : 0.15, 
         animations: 'disabled',

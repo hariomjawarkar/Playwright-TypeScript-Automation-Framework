@@ -16,9 +16,7 @@ export class LoginPage {
     }
 
     async navigateToLogin() {
-
-        await this.page.goto(ENV.baseURL);
-
+        await this.page.goto(ENV.baseURL, { waitUntil: 'domcontentloaded' });
     }
     async login(user: string, pass: string) {
 

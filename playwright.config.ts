@@ -31,15 +31,19 @@ export default defineConfig({
     navigationTimeout: 30000,
 
     launchOptions: {
-      slowMo: 0,
-      args: ['--hide-scrollbars', '--disable-gpu', '--no-sandbox'] 
+      slowMo: 0
     }
   },
 
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome'],
+        launchOptions: {
+          args: ['--hide-scrollbars', '--disable-gpu', '--no-sandbox']
+        }
+      },
     },
     {
       name: 'firefox',

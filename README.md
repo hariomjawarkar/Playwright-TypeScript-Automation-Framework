@@ -29,10 +29,10 @@ This framework implements several best practices in test automation:
 ## 📊 Framework Results & Execution
 
 ### Allure Reporting Dashboard
-![Allure Report Dashboard](./assets/allure-dashboard.png)
+![Allure Report Dashboard](./assets/allure_dashboared.png)
 
 ### Automated Test Execution
-![Test Execution Demo](./assets/test-run.gif)
+![Test Execution Demo](./assets/test-run.png)
 
 ### GitHub Actions Pipeline
 ![Build Pipeline](./assets/github-actions-pass.png)
@@ -82,6 +82,23 @@ npx playwright install
 
 ---
 
+## 🐳 Docker Execution
+
+This framework is fully containerized to ensure 100% environment parity across Dev, QA, and CI environments.
+
+### 1. Build the Docker Image
+```bash
+npm run docker:build
+```
+
+### 2. Run Tests in Container
+```bash
+npm run docker:run
+```
+*Note: This will execute the tests inside a Linux container and sync the results back to your local `allure-results` folder.*
+
+---
+
 ### 🧪 Execution Commands
 
 | Environment | Command |
@@ -115,3 +132,13 @@ The project includes a `.github/workflows/playwright.yml` file which automatical
 ## 👨‍💻 Author
 **Hariom Jawarkar**
 - GitHub: [@hariomjawarkar](https://github.com/hariomjawarkar)
+
+---
+
+## 🔮 Future Roadmap (Next Steps)
+
+To take this framework to the next level, we can implement:
+1.  **🐳 Dockerization:** Containerize the execution environment to ensure 100% parity between local and CI.
+2.  **📊 Data-Driven SQL Integration:** Connect directly to a SQL/PostgreSQL database to validate back-end data consistency after UI actions.
+3.  **💬 Notification System:** Integrate **Slack or Microsoft Teams** incoming webhooks to push instant test results to the engineering team.
+4.  **📉 Performance Benchmarking:** Integrate **k6** or Playwright's native performance tracing to measure page load times under different network conditions.

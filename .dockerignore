@@ -1,0 +1,12 @@
+node_modules
+test-results
+playwright-report
+allure-results
+allure-report
+blob-report
+.git
+.github
+*.png
+*.jpg
+*.gif
+assets/auth.json

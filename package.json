@@ -6,7 +6,11 @@
   "type": "commonjs",
   "scripts": {
     "test": "npx playwright test",
+    "clean:results": "npx rimraf allure-results allure-report playwright-report test-results",
+    "pretest": "npm run clean:results",
     "test:dev": "cross-env ENV=dev npx playwright test",
+    "docker:build": "docker build -t playwright-framework .",
+    "docker:run": "docker run --rm -v ${PWD}/allure-results:/app/allure-results playwright-framework",
     "test:stage": "cross-env ENV=stage npx playwright test",
     "test:prod": "cross-env ENV=prod npx playwright test",
     "test:smoke": "npx playwright test --grep @smoke",

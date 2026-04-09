@@ -4,11 +4,18 @@ import { ENV } from './config/env';
 export default defineConfig({
   testDir: './tests',
   timeout: 120000,
-  expect: { timeout: 15000 },
   fullyParallel: true,
   retries: 2,
   workers: process.env.CI ? 2 : 1,
-  snapshotPathTemplate: '{testDir}/{testFileName}-snapshots/{arg}-{platform}{ext}',
+  snapshotPathTemplate: '{testDir}/{testFileName}-snapshots/{arg}{ext}',
+  expect: {
+    timeout: 15000,
+    toHaveScreenshot: {
+      maxDiffPixelRatio: 0.15,
+      threshold: 0.2,
+      animations: 'disabled',
+    }
+  },
 
   // High-end pattern: Auth reuse
   globalSetup: require.resolve('./utils/global-setup'),

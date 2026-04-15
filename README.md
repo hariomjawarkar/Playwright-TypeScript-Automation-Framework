@@ -132,13 +132,3 @@ The project includes a `.github/workflows/playwright.yml` file which automatical
 ## 👨‍💻 Author
 **Hariom Jawarkar**
 - GitHub: [@hariomjawarkar](https://github.com/hariomjawarkar)
-
----
-
-## 🔮 Future Roadmap (Next Steps)
-
-To take this framework to the next level, we can implement:
-1.  **🐳 Dockerization:** Containerize the execution environment to ensure 100% parity between local and CI.
-2.  **📊 Data-Driven SQL Integration:** Connect directly to a SQL/PostgreSQL database to validate back-end data consistency after UI actions.
-3.  **💬 Notification System:** Integrate **Slack or Microsoft Teams** incoming webhooks to push instant test results to the engineering team.
-4.  **📉 Performance Benchmarking:** Integrate **k6** or Playwright's native performance tracing to measure page load times under different network conditions.
